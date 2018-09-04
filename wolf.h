@@ -6,7 +6,7 @@
 /*   By: dhorvill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 17:50:52 by dhorvill          #+#    #+#             */
-/*   Updated: 2018/09/04 17:53:08 by dhorvill         ###   ########.fr       */
+/*   Updated: 2018/09/04 18:22:15 by dhorvill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <math.h>
+#include "libft.h"
+#include "get_next_line.h"
 
 #define SCREEN_HEIGHT 1000
 #define SCREEN_WIDTH 1000
@@ -86,14 +88,14 @@ typedef struct	s_player
 	double aSpeed;
 	double sSpeed;
 	double dSpeed;
-}		t_player;
+}				t_player;
 
 typedef struct	s_wind
 {
-	SDL_Window *window;
-	SDL_Surface *screen;
-	SDL_Surface *used;
-        SDL_Event event;	
+	SDL_Window	*window;
+	SDL_Surface	*screen;
+	SDL_Surface	*used;
+    SDL_Event	event;	
 }		t_wind;
 
 typedef struct	s_texture
@@ -103,6 +105,7 @@ typedef struct	s_texture
 	SDL_Surface *west;
 	SDL_Surface *east;
 	SDL_Surface *portal;
+	SDL_Surface	*door;
 }		t_texture;
 
 #endif
