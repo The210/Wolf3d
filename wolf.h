@@ -6,7 +6,7 @@
 /*   By: dhorvill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 17:50:52 by dhorvill          #+#    #+#             */
-/*   Updated: 2018/09/06 20:17:06 by dhorvill         ###   ########.fr       */
+/*   Updated: 2018/09/06 20:44:13 by dhorvill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,16 @@
 # define SCREEN_HEIGHT 1000
 # define SCREEN_WIDTH 1000
 # define TEXTURE 500
+
+typedef struct	s_pixels
+{
+	Uint32		*pixels;
+	Uint32		pixel;
+	Uint32		color;
+	Uint8		r;
+	Uint8		g;
+	Uint8		b;
+}				t_pixel;
 
 typedef	struct	s_coord
 {
@@ -124,7 +134,7 @@ Uint32		get_pixel32(SDL_Surface *surface, int x, int y);
 t_cast		*init_cast(t_cast *cast, t_player player);
 void		move_ray(t_cast *cast, t_player player, int *side);
 int			vertical_ray(t_cast *cast, t_player player, int *side, char **map);
-int			RayCast(t_player player, char **map, int *texturecolumn, int *side, t_cast *cast);
+int			raycast(t_player player, char **map, t_misc *misc, t_cast *cast);
 int			det_orient(int side, t_player player);
 void		draw_column(t_wind wind, t_misc misc);
 void		renderframe(t_player player, t_wind wind, char **map, t_texture texture);

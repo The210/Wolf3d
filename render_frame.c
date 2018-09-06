@@ -6,7 +6,7 @@
 /*   By: dhorvill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 21:37:53 by dhorvill          #+#    #+#             */
-/*   Updated: 2018/09/04 23:45:35 by dhorvill         ###   ########.fr       */
+/*   Updated: 2018/09/06 20:38:08 by dhorvill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ void	rays(t_player *player, t_misc *misc, t_cast *cast, char **map)
 			/ (SCREEN_WIDTH / 2));
 	player->ray.y = player->dir.y + (player->plane.y * -misc->x
 			/ (SCREEN_WIDTH / 2));
-	misc->height = misc->scale * RayCast(*player, map,
-			&misc->texturecolumn, &misc->side, cast);
+	misc->height = misc->scale * raycast(*player, map,
+			misc, cast);
 	misc->stepy = (TEXTURE / 2) / (double)misc->height;
 	misc->orientation = det_orient(misc->side, *player);
 }
