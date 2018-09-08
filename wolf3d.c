@@ -6,7 +6,7 @@
 /*   By: dhorvill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 17:50:47 by dhorvill          #+#    #+#             */
-/*   Updated: 2018/09/06 20:16:56 by dhorvill         ###   ########.fr       */
+/*   Updated: 2018/09/06 21:29:12 by dhorvill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ t_special	find_special(char **map, t_special special)
 	if (fs.j == 1)
 		special.error = 0;
 	else
+	{
+		ft_putendl("Error: Incorrect spawn number.");
 		special.error = 1;
+	}
 	return (special);
 }
 
@@ -81,7 +84,8 @@ int			main(int argc, char **argv)
 
 	if (argc != 2)
 		return (0);
-	map = readmap(argv[1]);
+	if ((map = readmap(argv[1])) == NULL)
+		return (1);
 	special = find_special(map, special);
 	if (special.error == 1)
 		return (1);

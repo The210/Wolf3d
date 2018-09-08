@@ -6,7 +6,7 @@
 /*   By: dhorvill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 17:50:52 by dhorvill          #+#    #+#             */
-/*   Updated: 2018/09/06 20:44:13 by dhorvill         ###   ########.fr       */
+/*   Updated: 2018/09/06 21:13:03 by dhorvill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct	s_cast
 	double		e;
 	int			column;
 }				t_cast;
+
 typedef struct	s_misc
 {
 	int			x;
@@ -117,27 +118,30 @@ typedef struct	s_texture
 	SDL_Surface	*door;
 }				t_texture;
 
-char		**readmap(char *argv);
-t_player	init_player(t_player player, t_special special);
-t_wind		init_wind(t_wind wind);
-t_texture	load_textures(t_texture texture);
-int			check_key_down(t_player *player, t_wind wind, char **map);
-void		change_char(t_player *player, t_wind wind);
-void		change_comp(t_player *player, char **map, t_special special);
-int			playerpcoll(int axis, t_player player, char **map);
-int			playercollision(int axis, t_player player, char **map);
-int			collision(int i, int j, char **map);
-int			playercollision(int axis, t_player player, char **map);
-int			playerpcoll(int axis, t_player player, char **map);
-void		put_pixel32(SDL_Surface *surface, int x, int y, Uint32 pixel);
-Uint32		get_pixel32(SDL_Surface *surface, int x, int y);
-t_cast		*init_cast(t_cast *cast, t_player player);
-void		move_ray(t_cast *cast, t_player player, int *side);
-int			vertical_ray(t_cast *cast, t_player player, int *side, char **map);
-int			raycast(t_player player, char **map, t_misc *misc, t_cast *cast);
-int			det_orient(int side, t_player player);
-void		draw_column(t_wind wind, t_misc misc);
-void		renderframe(t_player player, t_wind wind, char **map, t_texture texture);
-void		change_secret(t_player *player, char **map);
+char			**readmap(char *argv);
+t_player		init_player(t_player player, t_special special);
+t_wind			init_wind(t_wind wind);
+t_texture		load_textures(t_texture texture);
+int				check_key_down(t_player *player, t_wind wind, char **map);
+void			change_char(t_player *player, t_wind wind);
+void			change_comp(t_player *player, char **map, t_special special);
+int				playerpcoll(int axis, t_player player, char **map);
+int				playercollision(int axis, t_player player, char **map);
+int				collision(int i, int j, char **map);
+int				playercollision(int axis, t_player player, char **map);
+int				playerpcoll(int axis, t_player player, char **map);
+void			put_pixel32(SDL_Surface *surface, int x, int y, Uint32 pixel);
+Uint32			get_pixel32(SDL_Surface *surface, int x, int y);
+t_cast			*init_cast(t_cast *cast, t_player player);
+void			move_ray(t_cast *cast, t_player player, int *side);
+int				vertical_ray(t_cast *cast, t_player player,
+				int *side, char **map);
+int				raycast(t_player player, char **map,
+				t_misc *misc, t_cast *cast);
+int				det_orient(int side, t_player player);
+void			draw_column(t_wind wind, t_misc misc);
+void			renderframe(t_player player, t_wind wind,
+				char **map, t_texture texture);
+void			change_secret(t_player *player, char **map);
 
 #endif
