@@ -6,7 +6,7 @@
 /*   By: dhorvill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/03 19:21:19 by dhorvill          #+#    #+#             */
-/*   Updated: 2018/09/02 22:40:18 by smerelo          ###   ########.fr       */
+/*   Updated: 2018/09/29 22:01:34 by smerelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,9 @@ int			get_next_line(const int fd, char **line)
 		if (ret == 0)
 			return (give_to_line(line, extra));
 		buf[ret] = '\0';
+		if (buf[0] && buf[0] != 'p' && buf[0] != '\n' && buf[0] != 'C' &&
+		buf[0] != '0' && buf[0] != '1' && buf[0] != 'S' && buf[0] != 's')
+			return (-1);
 		tmp = ft_strjoin(extra, buf);
 		ft_strdel(&extra);
 		extra = tmp;

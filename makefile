@@ -1,29 +1,28 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: smerelo <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/03/30 18:18:49 by smerelo           #+#    #+#              #
-#    Updated: 2018/09/04 23:23:47 by dhorvill         ###   ########.fr        #
+#    Created: 2018/09/30 19:57:28 by smerelo           #+#    #+#              #
+#    Updated: 2018/09/30 20:46:59 by smerelo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
-NAME = wolf
+NAME = wolf3d
 
 CFLAGS = -Wall -Werror -Wextra
 
-SRCS = wolf3d.c get_next_line.c init_vars.c events.c collision.c SDLpixels.c trace_ray.c render_frame.c secret.c
+SRCS = wolf3d.c get_next_line.c init_vars.c events.c collision.c sdlpixels.c trace_ray.c render_frame.c secret.c
 
 OBJS = $(SRCS:%.c=%.o)
 
 all: $(NAME)
 
-$(NAME):
+$(NAME): $(OBJS)
 		make -C libft
-			gcc -o $(NAME) $(SRCS) -Ilibft libft/libft.a -Iinclude -L lib -l SDL2-2.0.0
+			gcc -o $(NAME) $(OBJS) -Ilibft libft/libft.a -Iinclude -L lib -l SDL2-2.0.0 -g
 clean:
 		make clean -C libft
 			rm -f $(OBJS)

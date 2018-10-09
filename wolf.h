@@ -6,15 +6,15 @@
 /*   By: dhorvill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 17:50:52 by dhorvill          #+#    #+#             */
-/*   Updated: 2018/09/06 21:13:03 by dhorvill         ###   ########.fr       */
+/*   Updated: 2018/09/30 20:44:15 by smerelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WOLF_H
 # define WOLF_H
 
-# include "SDL.h"
-# include "libft.h"
+# include "include/SDL.h"
+# include "libft/libft.h"
 # include "get_next_line.h"
 
 # define SCREEN_HEIGHT 1000
@@ -119,9 +119,9 @@ typedef struct	s_texture
 }				t_texture;
 
 char			**readmap(char *argv);
-t_player		init_player(t_player player, t_special special);
-t_wind			init_wind(t_wind wind);
-t_texture		load_textures(t_texture texture);
+void			init_player(t_special special, t_player *player);
+void			init_wind(t_wind *wind);
+void			load_textures(t_texture *texture);
 int				check_key_down(t_player *player, t_wind wind, char **map);
 void			change_char(t_player *player, t_wind wind);
 void			change_comp(t_player *player, char **map, t_special special);

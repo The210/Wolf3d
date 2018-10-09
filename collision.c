@@ -6,7 +6,7 @@
 /*   By: dhorvill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 20:24:05 by dhorvill          #+#    #+#             */
-/*   Updated: 2018/09/04 23:33:23 by dhorvill         ###   ########.fr       */
+/*   Updated: 2018/09/30 20:30:43 by smerelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	collision(int i, int j, char **map)
 {
-	if (j >= ft_tablen(map) || ft_strlen(map[0]) <= i || i < 0 || j < 0)
+	if (j >= (int)ft_tablen(map) || (int)ft_strlen(map[0]) <= i
+		|| i < 0 || j < 0)
 		return (1);
 	if (map[j][i] != '0' && map[j][i] != 'p' && map[j][i] != 's' &&
 	map[j][i] != 'S' && map[j][i] != 'C' && map[j][i] != 'O')
